@@ -21,14 +21,16 @@ class Presentational extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>To-do List</h1>
-        <input value={this.state.input} onChange={this.handleChange}/>
-        <button onClick={this.submitTask}>Add to-do</button>
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <h1 className="text-2xl font-serif ">To-do List</h1> 
+        <input value={this.state.input} onChange={this.handleChange} className='outline rounded m-5 p-3'
+        placeholder="Add Your Task"/>
+        <button onClick={this.submitTask} className="italic font-serif bg-purple-300 py-4  px-10 rounded-full hover:bg-purple-200">Add Task</button>
         <br/>
-        <ul>
+        <ul className="border-2  flex flex-col items-start pl-7 py-3
+         m-2 list-disc" >
           {this.props.tasks.map((task,idx)=>{
-            return ( <li key={idx}>{task}</li> );
+            return ( <li key={idx} className="pr-40 items-start ">{task}</li> );
           })}
         </ul>
       </div>
